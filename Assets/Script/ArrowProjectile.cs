@@ -8,15 +8,24 @@ public class ArrowProjectile : MonoBehaviour
     private int bounceCount = 0;
     private int maxBounces = 2;
 
+    Rigidbody rb;
+
     void Start()
     {
-        // Destroy arrow after 5 seconds so they don't lag the game
+        rb = GetComponent<Rigidbody>();
+        // Launch the bullet
+        rb.linearVelocity = transform.forward * speed;
+
         Destroy(gameObject, 5f);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        // If the bullet has moved, make it face the direction it is traveling
+        if (rb.linearVelocity != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(rb.linearVelocity);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -31,8 +40,7 @@ public class ArrowProjectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        // 2. Check if we hit a Wall
-        else if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
             if (canRicochet && bounceCount < maxBounces)
             {
@@ -44,10 +52,6 @@ public class ArrowProjectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else
-        {
-            // Hit anything else (Floor, etc.)
-            Destroy(gameObject);
-        }
+        
     }
 }

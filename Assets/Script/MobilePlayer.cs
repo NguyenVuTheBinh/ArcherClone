@@ -102,11 +102,11 @@ public class MobilePlayer : MonoBehaviour
         // Move the player using Rigidbody for better physics interactions
         Vector3 targetVelocity = new Vector3(_moveInput.x, 0, _moveInput.y) * moveSpeed;
         _rb.linearVelocity = targetVelocity;
-
+        RotateTowards(_lookInput);
         // Rotate towards movement or look direction
         if (_lookInput.sqrMagnitude > 0.05f)
         {
-            RotateTowards(_lookInput);
+            
         }
         else if (_moveInput.sqrMagnitude > 0.05f)
         {
