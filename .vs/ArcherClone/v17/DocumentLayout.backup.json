@@ -1,21 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\SideProject\\ArcherClone\\",
+  "WorkspaceRootPath": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|D:\\SideProject\\ArcherClone\\assets\\script\\arrowprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\AZ\\My project (5)\\ArcherClone\\Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|c:\\users\\az\\my project (5)\\archerclone\\assets\\script\\arrowprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\arrowprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|d:\\sideproject\\archerclone\\assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|D:\\SideProject\\ArcherClone\\assets\\script\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|D:\\SideProject\\ArcherClone\\assets\\script\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,28 +30,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MobilePlayer.cs",
-              "DocumentMoniker": "D:\\SideProject\\ArcherClone\\Assets\\Script\\MobilePlayer.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MobilePlayer.cs",
-              "ToolTip": "D:\\SideProject\\ArcherClone\\Assets\\Script\\MobilePlayer.cs",
-              "RelativeToolTip": "Assets\\Script\\MobilePlayer.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAADwv2gAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "EventSystem.cs",
+              "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
+              "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T07:13:44.858Z",
+              "WhenOpened": "2026-02-19T11:30:27.967Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "MobilePlayer.cs",
+              "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\MobilePlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MobilePlayer.cs",
+              "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\MobilePlayer.cs",
+              "RelativeToolTip": "Assets\\Script\\MobilePlayer.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAADwv2gAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T07:13:44.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UpgradeData.cs",
-              "DocumentMoniker": "D:\\SideProject\\ArcherClone\\Assets\\Script\\UpgradeData.cs",
+              "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\UpgradeData.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\UpgradeData.cs",
-              "ToolTip": "D:\\SideProject\\ArcherClone\\Assets\\Script\\UpgradeData.cs",
+              "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\UpgradeData.cs",
               "RelativeToolTip": "Assets\\Script\\UpgradeData.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -55,11 +71,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ArrowProjectile.cs",
-              "DocumentMoniker": "D:\\SideProject\\ArcherClone\\Assets\\Script\\ArrowProjectile.cs",
+              "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\ArrowProjectile.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ArrowProjectile.cs",
-              "ToolTip": "D:\\SideProject\\ArcherClone\\Assets\\Script\\ArrowProjectile.cs",
+              "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\ArrowProjectile.cs",
               "RelativeToolTip": "Assets\\Script\\ArrowProjectile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -68,11 +84,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PlayerStats.cs",
-              "DocumentMoniker": "D:\\SideProject\\ArcherClone\\Assets\\Script\\PlayerStats.cs",
+              "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\PlayerStats.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PlayerStats.cs",
-              "ToolTip": "D:\\SideProject\\ArcherClone\\Assets\\Script\\PlayerStats.cs",
+              "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\PlayerStats.cs",
               "RelativeToolTip": "Assets\\Script\\PlayerStats.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
