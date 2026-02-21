@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479af3af7d1cbfc4692b278803ea68be, type: 3}
   m_Name: CritUp
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: 
+  upgradeName: CritChance
   description: 
   icon: {fileID: 0}
   statType: 0

@@ -1807,6 +1807,7 @@ MonoBehaviour:
   rotationSpeed: 720
   arrowPrefab: {fileID: 7992329581436130185, guid: b364d1628d4ee6345a9b33b38509e876, type: 3}
   firePoint: {fileID: 502448167}
+  baseFireRate: 1
   playerStats: {fileID: 1221370813}
 --- !u!114 &1221370813
 MonoBehaviour:
@@ -1825,15 +1826,17 @@ MonoBehaviour:
   expToNextLevel: 500
   passiveXpRate: 50
   multishotCount: 0
+  frontArrowCount: 0
   hasRicochet: 1
   hasFire: 0
   hasIce: 0
   damage: 1
+  attackSpeedModifier: 1
   xpSlider: {fileID: 941422390}
+  levelManager: {fileID: 2134953554}
   maxHealth: 20
   currentHealth: 0
   healthBar: {fileID: 1618927443}
-  levelManager: {fileID: 2134953554}
 --- !u!1 &1227728369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,7 +2991,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134953551}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7804113946e9fec46a1f8c1013470fc3, type: 3}
   m_Name: 
@@ -3035,10 +3038,15 @@ MonoBehaviour:
   - {fileID: 2022281274}
   - {fileID: 1841429287}
   - {fileID: 1988462884}
+  - {fileID: 1988462884}
+  - {fileID: 1988462884}
   allUpgrades:
   - {fileID: 11400000, guid: ede4443e0770a224cb7fe8f22d33c507, type: 2}
   - {fileID: 11400000, guid: 9087b5bf92409fb4d9c13d5b2aa37163, type: 2}
   - {fileID: 11400000, guid: a4d111ea8cf2b0b4395aa1371f1b1b1a, type: 2}
+  - {fileID: 11400000, guid: 74aec239b52737c40a0ac0c69b857b87, type: 2}
+  - {fileID: 11400000, guid: a3080b3465705b44fbdf99a901ee0169, type: 2}
+  - {fileID: 11400000, guid: d609b01695f11aa42b82ca18cc7a3bd0, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
