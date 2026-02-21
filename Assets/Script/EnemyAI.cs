@@ -42,21 +42,21 @@ public class EnemyAI : MonoBehaviour
     {
         if (_player == null) return;
 
-        float distance = Vector3.Distance(transform.position, _player.position);
+        // 1. Calculate the direction to the player
+        Vector3 direction = (_player.position - transform.position).normalized;
 
-        // 3. Automated "OnMove" behavior
+        // 2. Aim: Rotate to face the player every frame
+        RotateTowards(new Vector2(direction.x, direction.z));
+
+        // 3. Movement: Only move if outside stopping distance
+        float distance = Vector3.Distance(transform.position, _player.position);
         if (distance > stoppingDistance)
         {
-            Vector3 direction = (_player.position - transform.position).normalized;
             _rb.linearVelocity = new Vector3(direction.x, 0, direction.z) * moveSpeed;
-            RotateTowards(new Vector2(direction.x, direction.z));
         }
         else
         {
             _rb.linearVelocity = Vector3.zero;
-            // Still face the player even when stopped
-            Vector3 direction = (_player.position - transform.position).normalized;
-            RotateTowards(new Vector2(direction.x, direction.z));
         }
     }
 

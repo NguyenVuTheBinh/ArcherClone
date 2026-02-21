@@ -20,8 +20,12 @@ public class PlayerStats : MonoBehaviour
     public bool hasIce = false;
 
     [Header("Combat Stats")]
+    [Header("Combat Stats")]
     public int damage = 1;
-    public float attackSpeedModifier = 1f; // <--- NEW: 1.0 is base speed
+    public float attackSpeedModifier = 1f;
+    public float critChance = 0.05f; // 5% base chance
+    public float critMultiplier = 2f; // Double damage
+    public bool hasLifeSteal = false; //
 
     [Header("UI References")]
     public Slider xpSlider;

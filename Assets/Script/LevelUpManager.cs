@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
-public class LevelUpManager : MonoBehaviour
+public partial class LevelUpManager : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject levelUpPanel;
@@ -30,21 +31,18 @@ public class LevelUpManager : MonoBehaviour
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
 
-        // --- NEW LOGIC START ---
-
         // Create a temporary copy of your "Deck" so we can remove cards from it
-        System.Collections.Generic.List<UpgradeData> deck = new System.Collections.Generic.List<UpgradeData>(allUpgrades);
+        List<UpgradeData> deck = new List<UpgradeData>(allUpgrades);
 
         for (int i = 0; i < optionButtons.Length; i++)
         {
             // Safety Check: Do we have enough upgrades left in the deck?
             if (deck.Count == 0)
             {
-                optionButtons[i].gameObject.SetActive(false); // Hide button if no upgrades left
+                optionButtons[i].gameObject.SetActive(false);
                 continue;
             }
 
-            // Turn button on just in case it was off
             optionButtons[i].gameObject.SetActive(true);
 
             // Pick a random index from the REMAINING cards
@@ -53,8 +51,6 @@ public class LevelUpManager : MonoBehaviour
 
             // REMOVE it from the deck so it can't be picked again this round
             deck.RemoveAt(randomIndex);
-
-            // --- NEW LOGIC END ---
 
             // Setup the text
             if (optionTexts[i] != null)
@@ -81,7 +77,7 @@ public class LevelUpManager : MonoBehaviour
 
         switch (data.statType)
         {
-            // --- STATS ---
+            // --- BASIC STATS ---
             case StatType.MaxHealth:
                 playerStats.maxHealth += (int)data.amount;
                 playerStats.Heal((int)data.amount);
@@ -98,17 +94,33 @@ public class LevelUpManager : MonoBehaviour
                 }
                 break;
 
-            // --- WEAPONS ---
+            // --- COMBAT PASSIVES ---
+            case StatType.AttackSpeed:
+                // Affects the firing timer in MobilePlayer
+                playerStats.attackSpeedModifier += data.amount;
+                break;
+
+            case StatType.CritChance:
+                // Increases probability of double damage
+                playerStats.critChance += data.amount;
+                break;
+
+            case StatType.LifeSteal:
+                // Enables healing when enemies are killed
+                playerStats.hasLifeSteal = true;
+                break;
+
+            // --- PROJECTILE UPGRADES ---
             case StatType.Multishot:
                 playerStats.multishotCount++;
                 break;
 
-            case StatType.Ricochet:
-                playerStats.hasRicochet = true;
+            case StatType.FrontArrow:
+                playerStats.frontArrowCount++;
                 break;
 
-            case StatType.FrontArrow:
-                // Logic for front arrow if you add it later
+            case StatType.Ricochet:
+                playerStats.hasRicochet = true;
                 break;
         }
     }

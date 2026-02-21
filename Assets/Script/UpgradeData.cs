@@ -16,19 +16,24 @@ public class UpgradeData : ScriptableObject
 // This simple list helps us know what to upgrade
 public enum StatType
 {
-    // Stats
+    // Basic Stats
     MaxHealth,
     MoveSpeed,
     Damage,
     AttackSpeed,
 
-    // Weapon Modifiers (New!)
+    // NEW: Critical and Survival Modifiers
+    CritChance,
+    CritDamage,
+    LifeSteal,
+
+    // Weapon Modifiers
     Multishot,
     FrontArrow,
     DiagonalArrow,
     Ricochet,
 
-    // Elements (New!)
+    // Elements
     FireElement,
     IceElement
 }

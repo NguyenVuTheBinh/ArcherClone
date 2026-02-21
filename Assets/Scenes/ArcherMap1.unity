@@ -1832,6 +1832,9 @@ MonoBehaviour:
   hasIce: 0
   damage: 1
   attackSpeedModifier: 1
+  critChance: 0.05
+  critMultiplier: 2
+  hasLifeSteal: 0
   xpSlider: {fileID: 941422390}
   levelManager: {fileID: 2134953554}
   maxHealth: 20
@@ -3047,6 +3050,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74aec239b52737c40a0ac0c69b857b87, type: 2}
   - {fileID: 11400000, guid: a3080b3465705b44fbdf99a901ee0169, type: 2}
   - {fileID: 11400000, guid: d609b01695f11aa42b82ca18cc7a3bd0, type: 2}
+  - {fileID: 11400000, guid: 92b0ba9b7b3dfa04fba552bce4edfa8f, type: 2}
+  - {fileID: 11400000, guid: 04c6c578dae53f4469ee47138d1375f3, type: 2}
+  - {fileID: 11400000, guid: 3b9c4bdf66808414aa61794f11fbf930, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
