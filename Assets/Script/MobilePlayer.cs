@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Terresquall; // Ensure this namespace is here
 
 [RequireComponent(typeof(Rigidbody))]
 public class MobilePlayer : MonoBehaviour
@@ -8,18 +8,20 @@ public class MobilePlayer : MonoBehaviour
     public float moveSpeed = 10f;
     public float rotationSpeed = 720f;
 
+    [Header("Joystick IDs")]
+    public int moveJoystickID = 0; // Left Joystick
+    public int aimJoystickID = 1;  // Right Joystick
+
     [Header("Combat")]
     public GameObject arrowPrefab;
     public Transform firePoint;
-    public float baseFireRate = 1f; // <--- NEW: Seconds between shots
+    public float baseFireRate = 1f;
 
     [Header("References")]
     public PlayerStats playerStats;
 
-    private Vector2 _moveInput;
-    private Vector2 _lookInput;
     private Rigidbody _rb;
-    private float _fireTimer; // <--- NEW: Tracks cooldown
+    private float _fireTimer;
 
     void Awake()
     {
@@ -33,33 +35,40 @@ public class MobilePlayer : MonoBehaviour
 
     void Update()
     {
-        // Update the cooldown timer
         if (_fireTimer > 0) _fireTimer -= Time.deltaTime;
-    }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        _moveInput = context.ReadValue<Vector2>();
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        _lookInput = context.ReadValue<Vector2>();
-    }
-
-    public void OnFire(InputAction.CallbackContext context)
-    {
-        // Only shoot if cooldown is over
-        if (context.started && _fireTimer <= 0)
+        // AUTOMATIC SHOOTING: Reads Aiming Joystick (ID 1)
+        Vector2 aimInput = VirtualJoystick.GetAxis(aimJoystickID);
+        if (aimInput.sqrMagnitude > 0.2f && _fireTimer <= 0)
         {
-            if (arrowPrefab != null && firePoint != null)
-            {
-                Shoot();
-                // Reset timer based on attack speed stat
-                float speedMod = (playerStats != null) ? playerStats.attackSpeedModifier : 1f;
-                _fireTimer = baseFireRate / speedMod;
-            }
+            Shoot();
+            ResetFireTimer();
         }
+    }
+
+    void FixedUpdate()
+    {
+        // 1. MOVEMENT: Reads Movement Joystick (ID 0)
+        Vector2 moveInput = VirtualJoystick.GetAxis(moveJoystickID);
+        _rb.linearVelocity = new Vector3(moveInput.x, 0, moveInput.y) * moveSpeed;
+
+        // 2. ROTATION: Prioritize Aiming over Movement
+        Vector2 aimInput = VirtualJoystick.GetAxis(aimJoystickID);
+
+        if (aimInput.sqrMagnitude > 0.05f)
+        {
+            RotateTowards(aimInput);
+        }
+        else if (moveInput.sqrMagnitude > 0.05f)
+        {
+            RotateTowards(moveInput);
+        }
+    }
+
+    void ResetFireTimer()
+    {
+        float speedMod = (playerStats != null) ? playerStats.attackSpeedModifier : 1f;
+        _fireTimer = baseFireRate / speedMod;
     }
 
     void Shoot()
@@ -70,17 +79,13 @@ public class MobilePlayer : MonoBehaviour
         float spreadAngle = 15f;
         float startAngle = -(spreadAngle * (multishot - 1)) / 2;
 
-        // Loop for Front Arrows (depth)
         for (int f = 0; f <= frontArrows; f++)
         {
-            Vector3 offset = transform.forward * (f * 0.4f); // Spacing between front arrows
-
-            // Loop for Multishot (spread)
+            Vector3 offset = transform.forward * (f * 0.4f);
             for (int i = 0; i < multishot; i++)
             {
                 float currentAngle = startAngle + (i * spreadAngle);
                 Quaternion rotation = transform.rotation * Quaternion.Euler(0, currentAngle, 0);
-
                 GameObject arrow = Instantiate(arrowPrefab, firePoint.position + offset, rotation);
 
                 ArrowProjectile script = arrow.GetComponent<ArrowProjectile>();
@@ -91,13 +96,6 @@ public class MobilePlayer : MonoBehaviour
                 }
             }
         }
-    }
-
-    void FixedUpdate()
-    {
-        _rb.linearVelocity = new Vector3(_moveInput.x, 0, _moveInput.y) * moveSpeed;
-        if (_lookInput.sqrMagnitude > 0.05f) RotateTowards(_lookInput);
-        else if (_moveInput.sqrMagnitude > 0.05f) RotateTowards(_moveInput);
     }
 
     void RotateTowards(Vector2 dir)
