@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|c:\\users\\az\\my project (5)\\archerclone\\assets\\script\\levelupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|c:\\users\\az\\my project (5)\\archerclone\\assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\explosivellc\\warrior free\\code\\warriormovementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\explosivellc\\warrior free\\code\\warriormovementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\levelupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\levelupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|c:\\users\\az\\my project (5)\\archerclone\\assets\\script\\survivaltimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\survivaltimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\survivaltimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -21,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\upgradedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\mobileplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{144F3114-5C5A-4601-8293-4BAF99EF99E2}|Assembly-CSharp.csproj|C:\\Users\\AZ\\My project (5)\\ArcherClone\\assets\\virtualjoystick\\scripts\\devices\\virtualjoystick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +58,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "WarriorMovementController.cs",
+              "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\ExplosiveLLC\\Warrior FREE\\Code\\WarriorMovementController.cs",
+              "RelativeDocumentMoniker": "Assets\\ExplosiveLLC\\Warrior FREE\\Code\\WarriorMovementController.cs",
+              "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\ExplosiveLLC\\Warrior FREE\\Code\\WarriorMovementController.cs",
+              "RelativeToolTip": "Assets\\ExplosiveLLC\\Warrior FREE\\Code\\WarriorMovementController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T15:18:14.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SurvivalTimer.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\SurvivalTimer.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\SurvivalTimer.cs",
@@ -66,12 +82,11 @@
               "RelativeToolTip": "Assets\\Script\\SurvivalTimer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T14:20:53.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-25T14:20:53.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "VirtualJoystick.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\VirtualJoystick\\Scripts\\VirtualJoystick.cs",
               "RelativeDocumentMoniker": "Assets\\VirtualJoystick\\Scripts\\VirtualJoystick.cs",
@@ -83,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "VirtualJoystick.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\VirtualJoystick\\Scripts\\Devices\\VirtualJoystick.cs",
               "RelativeDocumentMoniker": "Assets\\VirtualJoystick\\Scripts\\Devices\\VirtualJoystick.cs",
@@ -95,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "EnemyArrow.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\EnemyArrow.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\EnemyArrow.cs",
@@ -107,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "EnemyAI.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\EnemyAI.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\EnemyAI.cs",
@@ -119,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LevelUpManager.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\LevelUpManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\LevelUpManager.cs",
@@ -127,12 +142,11 @@
               "RelativeToolTip": "Assets\\Script\\LevelUpManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAswEkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T06:22:34.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T06:22:34.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "EventSystem.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
@@ -140,24 +154,24 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.ugui@80da3b035d6b\\Runtime\\UGUI\\EventSystem\\EventSystem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T11:30:27.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T11:30:27.967Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "MobilePlayer.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\MobilePlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MobilePlayer.cs",
               "ToolTip": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\MobilePlayer.cs",
               "RelativeToolTip": "Assets\\Script\\MobilePlayer.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAiwFgAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAqwH0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T07:13:44.858Z"
+              "WhenOpened": "2026-02-17T07:13:44.858Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UpgradeData.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\UpgradeData.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\UpgradeData.cs",
@@ -169,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ArrowProjectile.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\ArrowProjectile.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\ArrowProjectile.cs",
@@ -181,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PlayerStats.cs",
               "DocumentMoniker": "C:\\Users\\AZ\\My project (5)\\ArcherClone\\Assets\\Script\\PlayerStats.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PlayerStats.cs",

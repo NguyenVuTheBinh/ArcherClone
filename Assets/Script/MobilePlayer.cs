@@ -19,6 +19,7 @@ public class MobilePlayer : MonoBehaviour
 
     [Header("References")]
     public PlayerStats playerStats;
+    private Animator _animator; // Added for animations
 
     private Rigidbody _rb;
     private float _fireTimer;
@@ -26,6 +27,8 @@ public class MobilePlayer : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        // Get the animator from the child model (Archer Warrior)
+        _animator = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -52,7 +55,14 @@ public class MobilePlayer : MonoBehaviour
         Vector2 moveInput = VirtualJoystick.GetAxis(moveJoystickID);
         _rb.linearVelocity = new Vector3(moveInput.x, 0, moveInput.y) * moveSpeed;
 
-        // 2. ROTATION: Prioritize Aiming over Movement
+        // 2. ANIMATION: Set Speed float for Movement Blend
+        if (_animator != null)
+        {
+            float speedPercent = moveInput.magnitude;
+            _animator.SetFloat("Speed", speedPercent);
+        }
+
+        // 3. ROTATION: Prioritize Aiming over Movement
         Vector2 aimInput = VirtualJoystick.GetAxis(aimJoystickID);
 
         if (aimInput.sqrMagnitude > 0.05f)
@@ -72,6 +82,16 @@ public class MobilePlayer : MonoBehaviour
     }
 
     void Shoot()
+    {
+        // 1. Trigger Attack Animation ONLY
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Attack");
+        }
+    }
+
+    // 2. PROJECTILE SPAWNING: Called by the Animation Event on the Timeline
+    public void SpawnArrow()
     {
         int multishot = 1 + (playerStats != null ? playerStats.multishotCount : 0);
         int frontArrows = (playerStats != null ? playerStats.frontArrowCount : 0);
