@@ -108,4 +108,12 @@ public class PlayerStats : MonoBehaviour
         // Reloads the currently active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    // --- RETURN TO TITLE FUNCTION ---
+    public void ReturnToTitle()
+    {
+        Time.timeScale = 1; // UNPAUSE the game so the menu works correctly
+
+        // Loads the scene at index 0 (UI-Start)
+        SceneManager.LoadScene(0);
+    }
 }

@@ -3,18 +3,19 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
-public partial class LevelUpManager : MonoBehaviour
+public class LevelUpManager : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject levelUpPanel;
     public Button[] optionButtons;
     public TMP_Text[] optionTexts;
+    public Image[] optionIcons; // Drag the Image components of your 3 button icons here
 
     [Header("Data")]
     public UpgradeData[] allUpgrades; // Drag your ScriptableObjects here
 
     private PlayerStats playerStats;
-    private MobilePlayer playerMovement; // Reference to change speed
+    private MobilePlayer playerMovement;
 
     void Start()
     {
@@ -54,7 +55,17 @@ public partial class LevelUpManager : MonoBehaviour
 
             // Setup the text
             if (optionTexts[i] != null)
+            {
                 optionTexts[i].text = "<b>" + data.upgradeName + "</b>\n" + data.description;
+            }
+
+            // --- ICON LOGIC ---
+            // Assign the sprite from your UpgradeData asset to the UI Image
+            if (optionIcons[i] != null && data.icon != null)
+            {
+                optionIcons[i].sprite = data.icon;
+                optionIcons[i].gameObject.SetActive(true);
+            }
 
             // Click Event
             optionButtons[i].onClick.RemoveAllListeners();
@@ -74,6 +85,8 @@ public partial class LevelUpManager : MonoBehaviour
     void ApplyStats(UpgradeData data)
     {
         Debug.Log("Selected: " + data.upgradeName);
+
+        if (playerStats == null) return;
 
         switch (data.statType)
         {
@@ -96,17 +109,14 @@ public partial class LevelUpManager : MonoBehaviour
 
             // --- COMBAT PASSIVES ---
             case StatType.AttackSpeed:
-                // Affects the firing timer in MobilePlayer
                 playerStats.attackSpeedModifier += data.amount;
                 break;
 
             case StatType.CritChance:
-                // Increases probability of double damage
                 playerStats.critChance += data.amount;
                 break;
 
             case StatType.LifeSteal:
-                // Enables healing when enemies are killed
                 playerStats.hasLifeSteal = true;
                 break;
 
