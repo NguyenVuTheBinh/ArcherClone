@@ -4423,11 +4423,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804113946e9fec46a1f8c1013470fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyPrefab: {fileID: 1903596523322312516, guid: f5b7c9057d86039499f2c89ddfa422f5, type: 3}
+  enemyPrefabs:
+  - {fileID: 2470364405374223520, guid: 594bb17e492e2594cb247d64ff9ea74d, type: 3}
+  - {fileID: 2312287585338457339, guid: 9d0ffcb7e3180f046b68e3704bd931bf, type: 3}
+  - {fileID: 3001920226566134293, guid: 4dc8b6e531beeff46bfce67dd1002b4d, type: 3}
   player: {fileID: 1221370811}
   spawnInterval: 3
   spawnRadius: 10
   maxEnemies: 6
+  difficultyIncreaseRate: 0.1
 --- !u!4 &2134953553
 Transform:
   m_ObjectHideFlags: 0

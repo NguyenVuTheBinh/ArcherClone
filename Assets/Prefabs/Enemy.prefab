@@ -113,12 +113,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2794cff3c8122254a942694373329e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  maxHealth: 50
+  damage: 10
   moveSpeed: 5
   rotationSpeed: 360
-  stoppingDistance: 6
-  arrowPrefab: {fileID: 6596267991080439820, guid: f595c7555c564e14b8cc887afbe2b6de, type: 3}
+  isRanged: 1
+  attackRange: 2
+  attackCooldown: 1.5
+  projectilePrefab: {fileID: 6596267991080439820, guid: f595c7555c564e14b8cc887afbe2b6de, type: 3}
   firePoint: {fileID: 8203465224561615417}
-  fireRate: 1.5
 --- !u!114 &5445004170749743902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,10 +139,8 @@ MonoBehaviour:
   currentXp: 0
   xpToNextLevel: 20
   passiveXpRate: 5
-  damageAmount: 1
   healthBuff: 2
   damageBuff: 1
-  EnemyVisual: {fileID: 4794199446720669491}
 --- !u!54 &1208793440944403346
 Rigidbody:
   m_ObjectHideFlags: 0

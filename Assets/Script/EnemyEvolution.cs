@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyHealth))]
+[RequireComponent(typeof(EnemyAI))] // Added this requirement
 public class EnemyEvolution : MonoBehaviour
 {
     [Header("Leveling Settings")]
@@ -12,17 +13,19 @@ public class EnemyEvolution : MonoBehaviour
     public float passiveXpRate = 5f;
 
     [Header("Stat Buffs")]
-    public int damageAmount = 1;
-    public int healthBuff = 2;
-    public int damageBuff = 1;
+    public float healthBuff = 10f; // Made float to match your new AI/Health
+    public float damageBuff = 5f;
 
     private EnemyHealth _healthScript;
-    [SerializeField] private GameObject EnemyVisual;
+    private EnemyAI _aiScript; // Reference to the new AI brain
+
+    // We can't tint these new 3D models with a simple Renderer color change easily
+    // because they have complex materials. We'll stick to scaling for now!
 
     void Awake()
     {
         _healthScript = GetComponent<EnemyHealth>();
-
+        _aiScript = GetComponent<EnemyAI>();
     }
 
     void Update()
@@ -44,39 +47,33 @@ public class EnemyEvolution : MonoBehaviour
         currentXp = 0;
         xpToNextLevel *= 1.2f;
 
-        // 1. Always buff stats (Health & Damage) every level
+        // 1. Buff Max Health and Heal slightly
         if (_healthScript != null)
         {
-            _healthScript.maxHealth += healthBuff;
-            _healthScript.Heal(healthBuff);
-        }
-        damageAmount += damageBuff;
+            // Convert the float buff into a whole number
+            int hpBuff = Mathf.RoundToInt(healthBuff);
 
-        // 2. Only grow size every 5 levels (5, 10, 15, 20)
+            _healthScript.maxHealth += hpBuff;
+            _healthScript.Heal(hpBuff); // Use your existing Heal function safely!
+        }
+
+        // 2. Buff Damage in the AI script
+        if (_aiScript != null)
+        {
+            _aiScript.damage += damageBuff;
+        }
+
+        // 3. Size Growth Milestone
         int mileStoneLevel = 5;
         if (currentLevel % mileStoneLevel == 0)
         {
-            transform.localScale *= 1.3f; // Big growth spurt!
+            transform.localScale *= 1.15f;
+            if (_aiScript != null) _aiScript.moveSpeed *= 0.95f;
         }
-        EnemyVisual.GetComponent<Renderer>().material.color = Color.Lerp(Color.white, Color.red, (float)currentLevel % 5 / mileStoneLevel);
+
+        Debug.Log(gameObject.name + " Evolved to Level " + currentLevel + "!");
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // 1. Try to find the PlayerStats script on the object we hit
-            if (collision.gameObject.TryGetComponent<PlayerStats>(out PlayerStats playerStats))
-            {
-                // 2. Deal the damage!
-                playerStats.TakeDamage(damageAmount);
-
-                // Optional: Push the player back slightly (Knockback) so they don't get stuck
-                // Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
-                // if (playerRb != null) playerRb.AddForce(transform.forward * 5f, ForceMode.Impulse);
-                Debug.Log("Enemy (Lvl " + currentLevel + ") hit Player for " + damageAmount + " damage!");
-            }
-        }
-    }
+    // Note: I removed OnCollisionEnter because the EnemyAI script now handles 
+    // dealing damage during the Animation Event (PerformAttack).
 }
-
