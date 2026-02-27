@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class EnemyAI : MonoBehaviour
@@ -24,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     private Transform _player;
     private Rigidbody _rb;
     private Animator _animator;
+    private NavMeshAgent _agent;
     private float _attackTimer;
 
     void Start()
@@ -34,6 +36,14 @@ public class EnemyAI : MonoBehaviour
         // Get the animator from the child model
         _animator = GetComponentInChildren<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        // Safely grab the NavMeshAgent if the enemy has one
+        _agent = GetComponent<NavMeshAgent>();
+        if (_agent != null)
+        {
+            // This stops the AI from rotating the model, allowing your custom aiming to work!
+            _agent.updateRotation = false;
+        }
     }
 
     void Update()
@@ -56,39 +66,66 @@ public class EnemyAI : MonoBehaviour
     {
         if (_player == null) return;
 
-        // 1. FREEZE IF ATTACKING (The Spin Fix!)
-        // This stops them from sliding or spinning while the sword is swinging
+        float distance = Vector3.Distance(transform.position, _player.position);
+
+        // 1. FREEZE IF ATTACKING
         if (_animator != null)
         {
             AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-            // If the Animator is currently playing the Attack1 state, stop moving!
             if (stateInfo.IsName("Attack1"))
             {
+                if (_agent != null) _agent.velocity = Vector3.zero;
                 _rb.linearVelocity = Vector3.zero;
-                return; // Stop running the rest of the movement and aim code
+                return;
             }
         }
 
-        // 2. Calculate direction to the player
-        Vector3 direction = (_player.position - transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, _player.position);
-
-        // 3. Aim: Rotate to face the player
-        RotateTowards(new Vector2(direction.x, direction.z));
-
-        // 4. Movement & Animation
-        if (distance > attackRange)
+        // 2. SMART PATHFINDING (If they have a NavMeshAgent)
+        if (_agent != null && _agent.isOnNavMesh)
         {
-            Vector3 velocity = new Vector3(direction.x, 0, direction.z) * moveSpeed;
-            _rb.linearVelocity = velocity;
+            _agent.SetDestination(_player.position);
 
-            if (_animator != null) _animator.SetFloat("Speed", velocity.magnitude);
+            if (distance > attackRange)
+            {
+                _agent.isStopped = false;
+                _agent.speed = moveSpeed;
+
+                // Aim exactly where the path is turning!
+                Vector3 direction = (_agent.steeringTarget - transform.position).normalized;
+                RotateTowards(new Vector2(direction.x, direction.z));
+
+                if (_animator != null) _animator.SetFloat("Speed", _agent.velocity.magnitude);
+            }
+            else
+            {
+                _agent.isStopped = true;
+                _agent.velocity = Vector3.zero;
+
+                // Aim directly at the player to swing
+                Vector3 direction = (_player.position - transform.position).normalized;
+                RotateTowards(new Vector2(direction.x, direction.z));
+
+                if (_animator != null) _animator.SetFloat("Speed", 0f);
+            }
         }
+        // 3. FALLBACK FOR DUMB ENEMIES (Like the Capsule)
         else
         {
-            _rb.linearVelocity = Vector3.zero;
+            Vector3 direction = (_player.position - transform.position).normalized;
+            RotateTowards(new Vector2(direction.x, direction.z));
 
-            if (_animator != null) _animator.SetFloat("Speed", 0f);
+            if (distance > attackRange)
+            {
+                Vector3 velocity = new Vector3(direction.x, 0, direction.z) * moveSpeed;
+                _rb.linearVelocity = velocity;
+
+                if (_animator != null) _animator.SetFloat("Speed", velocity.magnitude);
+            }
+            else
+            {
+                _rb.linearVelocity = Vector3.zero;
+                if (_animator != null) _animator.SetFloat("Speed", 0f);
+            }
         }
     }
 
@@ -128,14 +165,15 @@ public class EnemyAI : MonoBehaviour
             float distance = Vector3.Distance(transform.position, _player.position);
             if (distance <= attackRange + 1f) // Extra 1f buffer so the hit connects fairly
             {
-                PlayerStats pStats = _player.GetComponent<PlayerStats>();
+                // UPDATED: Now searches children for the HP script!
+                PlayerStats pStats = _player.GetComponentInChildren<PlayerStats>();
                 if (pStats != null) pStats.TakeDamage(Mathf.RoundToInt(damage));
                 Debug.Log(gameObject.name + " dealt " + damage + " damage to player!");
             }
         }
     }
 
-    // SPANWER INTEGRATION: Called by EnemySpawner to increase difficulty
+    // SPAWNER INTEGRATION: Called by EnemySpawner to increase difficulty
     public void ScaleDifficulty(float timeMultiplier)
     {
         maxHealth *= timeMultiplier;
