@@ -81,3 +81,4 @@ MonoBehaviour:
   speed: 15
   damage: 10
   canRicochet: 0
+  tagToIgnore: Enemy

@@ -7,11 +7,26 @@ public class EnemyArrow : MonoBehaviour
     public bool canRicochet = false;
     private int bounceCount = 0;
     private int maxBounces = 1;
-
+    public string tagToIgnore;
+    
     Rigidbody rb;
 
     void Start()
     {
+        // Find all objects with the tags we want to ignore
+        GameObject[] objectsToIgnore = GameObject.FindGameObjectsWithTag(tagToIgnore);
+        foreach (GameObject obj in objectsToIgnore)
+        {
+            Collider enemyCollider = obj.GetComponent<Collider>();
+            Collider bulletCollider = GetComponent<Collider>();
+
+            if (enemyCollider != null && bulletCollider != null)
+            {
+                // Tell Unity's 3D physics engine to ignore this specific pair
+                Physics.IgnoreCollision(bulletCollider, enemyCollider);
+            }
+        }
+
         rb = GetComponent<Rigidbody>();
         // Launch the arrow forward
         rb.linearVelocity = transform.forward * speed;
